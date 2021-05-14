@@ -1,0 +1,31 @@
+package com.dev04.server.DAO;
+
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+@Service
+public class MemberService {
+	
+	@Autowired
+	private MemberRepository memberRepository;
+	
+	//회원 조회
+	public Member loginMember(String id, String password) {
+		Optional<Member> member = memberRepository.findByNameAndPassword(id, password);
+		if(member.isPresent()) {
+			return member.get();
+		}else {
+			System.out.println("멤버를 찾지 못하였습니다.");
+			return null; 
+		}
+	}
+	
+	//회원 가입
+	public void signUpMember(Member member) {
+		System.out.println("signUpMember");
+		System.out.println("member 이름 : " + member.getName());
+		memberRepository.save(member);
+	}
+}

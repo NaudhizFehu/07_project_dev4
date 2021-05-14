@@ -1,0 +1,66 @@
+package com.dev04.server.DAO;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+import lombok.Getter;
+import lombok.Setter;
+
+@Entity
+@Table(name="member")
+public class Member {
+	
+	@Id @Getter @Setter
+	@Column(name="idx")
+	private int idx;
+	
+	@Getter @Setter
+	@Column(name="id")
+	private String id;
+
+	@Getter @Setter
+	@Column(name="password")
+	private String password;
+	
+	@Getter @Setter
+	@Column(name="email")
+	private String email;
+	
+	@Getter @Setter
+	@Column(name="name")
+	private String name;
+	
+	@Getter @Setter
+	@Column(name="birthday")
+	private String birthday;
+	
+	@Getter @Setter
+	@Column(name="phonenumber")
+	private String phoneNumber;
+	
+	@Getter @Setter
+	@Column(name="address1")
+	private String address1;
+	
+	@Getter @Setter
+	@Column(name="address2")
+	private String address2;
+	
+	@Getter @Setter
+	@Column(name="zipcode")
+	private String zipcoide;
+	
+	@Getter @Setter
+	@Column(name="manager")
+	private String manager;
+	
+	@Getter @Setter
+	@Column(name="regdate")
+	private String regDate;
+	
+	@Getter @Setter
+	@Column(name="path")
+	private String path;
+}

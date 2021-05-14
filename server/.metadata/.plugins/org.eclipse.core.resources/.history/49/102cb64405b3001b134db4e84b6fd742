@@ -1,0 +1,15 @@
+package com.dev04.server.DAO;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+import org.junit.jupiter.api.Test;
+
+class MemberTest {
+
+	@Test
+	public void getId() {
+		final Member member = Member.builder().id("hou").name("호우").build();
+		final String id = member.getPassword();
+		System.out.println("id : " + id);
+	}
+}

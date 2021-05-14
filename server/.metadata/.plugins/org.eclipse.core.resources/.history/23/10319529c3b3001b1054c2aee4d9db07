@@ -1,0 +1,17 @@
+server:
+  port: 9407
+spring:
+  datasource:
+    driver-class-name: oracle.jdbc.driver.OracleDriver
+    hikari:
+      connection-timeout: 60000
+      maximum-pool-size: 5
+    password: DEV4_07
+    url: jdbc:oracle:thin:@localhost:1521:orcl
+    username: DEV4_07
+  jpa:
+    hibernate:
+      ddl-auto: none
+    show-sql: true
+
+    

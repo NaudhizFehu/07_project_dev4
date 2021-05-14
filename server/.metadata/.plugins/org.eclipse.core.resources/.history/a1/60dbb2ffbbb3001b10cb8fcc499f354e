@@ -1,0 +1,16 @@
+package com.dev04.server.DAO;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+import org.junit.jupiter.api.Test;
+
+class MemberServiceTest {
+
+	@Test
+	public void getMemberInfo() {
+		MemberService memberService = new MemberService();
+		Member member = memberService.loginMember("hou", "hoho");
+		
+	}
+
+}

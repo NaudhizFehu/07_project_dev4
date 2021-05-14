@@ -1,0 +1,7 @@
+package com.dev04.server.DAO;
+
+
+
+public class MemberRepositoryTest {
+
+}

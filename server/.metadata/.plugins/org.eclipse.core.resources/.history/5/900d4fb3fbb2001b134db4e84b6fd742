@@ -1,0 +1,6 @@
+package com.dev04.server.DAO;
+
+@Run
+public class MemberService {
+
+}

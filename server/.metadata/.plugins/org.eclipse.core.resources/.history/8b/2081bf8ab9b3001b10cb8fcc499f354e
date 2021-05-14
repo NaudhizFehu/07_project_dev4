@@ -1,0 +1,16 @@
+# server setting
+server.port=9407
+
+# create and drop tables and sequences
+spring.jpa.hibernate.ddl-auto=none
+spring.jpa.show-sql=true
+
+# oracle DB setting
+spring.datasource.url=jdbc:oracle:thin:@localhost:1521:orcl
+spring.datasource.username=DEV4_07
+spring.datasource.password=DEV4_07
+spring.datasource.driver-class-name=oracle.jdbc.driver.OracleDriver
+
+# connection pool(hikariCP) setting
+spring.datasource.hikari.connection-timeout=60000
+spring.datasource.hikari.maximum-pool-size=5

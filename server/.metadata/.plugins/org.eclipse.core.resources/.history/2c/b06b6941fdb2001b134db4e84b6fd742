@@ -1,0 +1,9 @@
+package com.dev04.server.DAO;
+
+import org.junit.jupiter.api.Test;
+
+public class MemberTest {
+
+	@Test
+	public void get
+}

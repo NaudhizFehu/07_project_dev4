@@ -1,0 +1,22 @@
+package com.dev04.server.DAO;
+
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
+
+@ExtendWith(SpringExtension.class)
+@Controller
+class MemberServiceTest {
+	
+	@Autowired
+	MemberService ms;
+
+	@Test
+	public void getMemberInfo() {
+		Member member = new Member();
+		ms.signUpMember(member);
+	}
+
+}
