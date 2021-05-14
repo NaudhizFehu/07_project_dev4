@@ -2,6 +2,8 @@
 <section name="Workbench">
 	<section name="MavenProjectImportWizardPage">
 		<list key="rootDirectory">
+			<item value="D:\04 java\LAB_Android\07_project_dev4\server\server"/>
+			<item value="D:\04 java\LAB_Android\07_project_dev4\server"/>
 			<item value="D:\SpringBootWeb"/>
 			<item value="D:\miniproject\07_project_dev4\server"/>
 		</list>
