@@ -1,45 +1,48 @@
 package com.dev04.Member;
 
-import java.time.LocalDate;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
-import org.springframework.format.annotation.DateTimeFormat;
 
-import com.sun.istack.NotNull;
 
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.Getter;
+import lombok.Setter;
 
-@Data
-@NoArgsConstructor
+@Getter@Setter
+@Table(name="MEMBER")
 @Entity
 public class Member {
 	
-	@Id @GeneratedValue
-	private long seq;
+	@Id
+	@Column(name="IDX_NO", nullable = false)
+	private int idx_no;
 	
-	@NotNull
-	private String email;
+	@Column(name="ID", length=10, nullable = false, unique = true)
+	private String id;
 	
-	@NotNull
+	@Column(name="PASSWORD", length = 15, nullable = false)
 	private String password;
 	
+	@Column(name="NAME", length = 25, nullable = false)
 	private String name;
 	
-	@Column(name = "RegDate")
-	@DateTimeFormat(pattern = "yyyy-MM-dd")
-	private LocalDate date;
+	@Column(name="EMAIL", length = 26, nullable = false)
+	private String email;
 	
-	public Member(@NotNull String email, @NotNull String password, String name) {
-		this.email = email;
-		this.password = password;
-		this.name = name;
-		this.date = LocalDate.now();
-	}
+	@Column(name="PHONE_NO", length = 11, nullable = false)
+	private int phone_no;
 	
+	@Column(name="REGDATE", length = 11, nullable = false)
+	private String regdate;
+	
+	@Column(name="PATH", length = 500)
+	private String path;
+	
+
+
+
 
 }
