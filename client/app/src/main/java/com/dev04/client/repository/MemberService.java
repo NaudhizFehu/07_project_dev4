@@ -2,21 +2,11 @@ package com.dev04.client.repository;
 
 
 import com.dev04.client.viewObject.LoginInput;
-import com.dev04.client.viewObject.Member;
+import com.dev04.client.viewObject.MemberVO;
 
-import java.util.List;
-
-import okhttp3.MultipartBody;
 import retrofit2.Call;
 import retrofit2.http.Body;
-import retrofit2.http.DELETE;
-import retrofit2.http.GET;
-import retrofit2.http.Multipart;
 import retrofit2.http.POST;
-import retrofit2.http.PUT;
-import retrofit2.http.Part;
-import retrofit2.http.Path;
-import retrofit2.http.Query;
 
 public interface MemberService {
 
@@ -24,7 +14,7 @@ public interface MemberService {
 //    Call<List<Member>> getAllMembers();
 //
     @POST("member/login")
-    Call<Member> loginMember(@Body LoginInput loginInput);
+    Call<MemberVO> loginMember(@Body LoginInput loginInput);
 //
 //    @Multipart
 //    @POST("member/sign-up")

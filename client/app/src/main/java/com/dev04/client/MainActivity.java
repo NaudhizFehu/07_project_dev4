@@ -15,14 +15,22 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         // 어플리케이션 실행시 LoginFragment를 실행하여 화면을 구성
         navigateTo(new LoginFragment(), false);
     }
 
     // 프라그먼트를 오고갈 메소드 선언
     public void navigateTo(Fragment fragment, boolean addToBackStack) {
+        if(!getSupportFragmentManager().popBackStackImmediate(fragment.getClass().getName(), 0)){
             FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
             transaction.replace(R.id.fragment_container, fragment);
+
+            if(addToBackStack){
+                transaction.addToBackStack(null);
+            }
+
             transaction.commit();
+        }
     }
 }

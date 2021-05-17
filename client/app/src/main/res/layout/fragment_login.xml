@@ -20,10 +20,22 @@
         tools:context=".ui.login.LoginFragment">
 
         <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_marginTop="150dp"
+            android:text="DEV4_APP"
+            android:textSize="50sp"
+            android:textStyle="bold"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="@id/id_input"/>
+
+        <TextView
             android:id="@+id/id_label"
             android:layout_width="100dp"
             android:layout_height="0dp"
-            android:layout_marginTop="96dp"
+            android:layout_marginTop="300dp"
             android:gravity="center_vertical|end"
             android:text="ID"
             android:textSize="20sp"
@@ -90,14 +102,16 @@
             android:layout_marginLeft="48dp"
             android:layout_marginRight="24dp" />
 
-<!--        <TextView-->
-<!--            android:id="@+id/sign_up_btn"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_marginEnd="20dp"-->
-<!--            android:text="@string/action_sign_up"-->
-<!--            android:textColor="@android:color/holo_blue_dark"-->
-<!--            app:layout_constraintBottom_toBottomOf="@id/login_btn"-->
-<!--            app:layout_constraintEnd_toStartOf="@id/login_btn" />-->
+        <Button
+            android:id="@+id/join_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:layout_marginEnd="20dp"
+            android:text="회원가입"
+            app:layout_constraintBottom_toBottomOf="@+id/login_btn"
+            app:layout_constraintEnd_toStartOf="@+id/login_btn"
+            android:layout_marginRight="24dp" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

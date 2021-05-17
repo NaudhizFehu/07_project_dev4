@@ -10,15 +10,15 @@ public class LoginAccount {
         return instance;
     }
 
-    private Member member;
+    private MemberVO memberVO;
 
     private LoginAccount() { }
 
-    public void setMember(Member member) {
-        this.member = member;
+    public void setMember(MemberVO memberVO) {
+        this.memberVO = memberVO;
     }
 
-    public Member getMember() {
-        return member;
+    public MemberVO getMember() {
+        return memberVO;
     }
 }

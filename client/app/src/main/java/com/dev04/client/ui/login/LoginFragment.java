@@ -1,7 +1,6 @@
 package com.dev04.client.ui.login;
 
 import androidx.databinding.DataBindingUtil;
-import androidx.databinding.ViewDataBinding;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
@@ -19,8 +18,9 @@ import com.dev04.client.MainActivity;
 import com.dev04.client.R;
 import com.dev04.client.ViewModelFactory;
 import com.dev04.client.databinding.FragmentLoginBinding;
+import com.dev04.client.ui.join.JoinFragment;
 import com.dev04.client.viewObject.LoginAccount;
-import com.dev04.client.viewObject.Member;
+import com.dev04.client.viewObject.MemberVO;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -52,7 +52,7 @@ public class LoginFragment extends Fragment {
         binding.setVm(loginViewModel);
 
         final Button loginButton = view.findViewById(R.id.login_btn);
-//        final TextView signUpButton = view.findViewById(R.id.sign_up_btn);
+        final Button joinButton = view.findViewById(R.id.join_btn);
 
         loginButton.setOnClickListener(v -> {
             // ID, PW 비어있는지 확인
@@ -61,20 +61,20 @@ public class LoginFragment extends Fragment {
                 return;
             }
 
-            loginViewModel.login(new Callback<Member>() {
+            loginViewModel.login(new Callback<MemberVO>() {
                 /**
                  * 로그인 성공
                  */
                 @Override
-                public void onResponse(Call<Member> call, Response<Member> response) {
+                public void onResponse(Call<MemberVO> call, Response<MemberVO> response) {
                     if (response.isSuccessful()) {
-                        Member member = response.body();
+                        MemberVO memberVO = response.body();
                         // 로그인된 회원 정보 저장
-                        LoginAccount.getInstance().setMember(member);
+                        LoginAccount.getInstance().setMember(memberVO);
 
                         // 팝업 메세지
                         if (requireActivity() != null) {
-                            Toast.makeText(requireActivity().getApplicationContext().getApplicationContext(), String.format("%s 회원님, 환영합니다.", member.getName()), Toast.LENGTH_SHORT).show();
+                            Toast.makeText(requireActivity().getApplicationContext().getApplicationContext(), String.format("%s 회원님, 환영합니다.", memberVO.getName()), Toast.LENGTH_SHORT).show();
                         }
 
                         // 멤버 목록 화면으로 전환
@@ -88,7 +88,7 @@ public class LoginFragment extends Fragment {
                  * 로그인 실패
                  */
                 @Override
-                public void onFailure(Call<Member> call, Throwable t) {
+                public void onFailure(Call<MemberVO> call, Throwable t) {
                     if (requireActivity() != null) {
                         Toast.makeText(requireActivity().getApplicationContext(), "로그인 실패. 인터넷 연결 상태를 확인해주세요.", Toast.LENGTH_SHORT).show();
                     }
@@ -96,8 +96,8 @@ public class LoginFragment extends Fragment {
             });
         });
 
-//        signUpButton.setOnClickListener(v -> {
-//            ((MainActivity) requireActivity()).navigateTo(new SignUpFragment(), true);
-//        });
+        joinButton.setOnClickListener(v -> {
+            ((MainActivity) requireActivity()).navigateTo(new JoinFragment(), true);
+        });
     }
 }
