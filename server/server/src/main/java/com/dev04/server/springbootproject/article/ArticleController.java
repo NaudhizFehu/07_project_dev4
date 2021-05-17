@@ -18,10 +18,10 @@ public class ArticleController {
 	private ArticleService articleService;
 
 	//게시글리스트
-	@GetMapping("/listArticle")
-	public Page<ArticleVO> list(Pageable pageable){
-		return articleService.articleList(pageable);
-	}
+//	@GetMapping("/listArticle")
+//	public Page<ArticleVO> list(Pageable pageable){
+//		return articleService.articleList(pageable);
+//	}
 	//게시글 작성
 	@PostMapping("/writeArticle")
 	public void writeArticle(ArticleVO vo){

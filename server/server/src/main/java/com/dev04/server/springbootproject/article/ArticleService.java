@@ -21,13 +21,13 @@ public class ArticleService {
 		rp.save(vo);
 	}
 	public Optional<ArticleVO> readArticle(ArticleVO vo) {
-		 return rp.findById(String.format("%d", vo.getArticle_no()));
+		 return rp.findById(String.format("%d", vo.getNo()));
 	}
 	public void deleteArticle(ArticleVO vo) {
 		rp.delete(vo);
 	}
-	public Page<ArticleVO> articleList(Pageable pageable) {
-		Page<ArticleVO> articlePage =rp.findAll(pageable);
-		return articlePage;
-	}
+//	public Page<ArticleVO> articleList(Pageable pageable) {
+//		Page<ArticleVO> articlePage =rp.findAll(pageable);
+//		return articlePage;
+//	}
 }
