@@ -1299,3 +1299,4 @@ org.eclipse.jdt.core.JavaModelException: target/test-classes/com/dev04/server/DA
 2021-05-14 01:09:46,834 [Worker-196: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
 2021-05-14 01:09:46,834 [Worker-196: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
 2021-05-14 01:09:46,834 [Worker-196: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\miniproject\07_project_dev4\server\server\src\test\resources
+2021-05-14 22:27:11,351 [Worker-3: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
