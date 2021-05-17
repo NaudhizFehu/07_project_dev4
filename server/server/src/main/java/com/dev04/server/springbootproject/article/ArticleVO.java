@@ -11,9 +11,9 @@ import lombok.Setter;
 
 @Getter@Setter
 @Entity
+@SequenceGenerator(name = "articleseq", sequenceName ="no",initialValue = 1,allocationSize = 1)
 @Table(name="ARTICLE")
 public class ArticleVO {
-//	@SequenceGenerator(name = "article_seq", sequenceName ="article_no",initialValue = 1,allocationSize = 1)
 	@Id
 	@Column(name="NO",nullable = false)
 	private int no;
@@ -22,10 +22,10 @@ public class ArticleVO {
 	private String title;
 	
 	@Column(name="WRITERID",length=10,nullable = false)
-	private String writerid;
+	private String writerId;
 	
 	@Column(name="WRITERNAME",length=25,nullable = false)
-	private String writername;
+	private String writerName;
 	
 	@Column(name="CONTENT")
 	private String content;
@@ -34,5 +34,5 @@ public class ArticleVO {
 	private String regDate;
 	
 	@Column(name="READCNT",nullable= false)
-	private int readcnt;
+	private int readCnt;
 }
