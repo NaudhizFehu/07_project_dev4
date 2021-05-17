@@ -1,4 +1,4 @@
-package com.dev04.Member;
+package com.dev04.server.member;
 
 
 import javax.persistence.Column;
@@ -12,16 +12,16 @@ import lombok.Getter;
 import lombok.Setter;
 
 @Getter@Setter
-@Table(name="MEMBER")
 @Entity
-public class Member {
+@Table(name="MEMBER")
+public class MemberVO {
 	
 	@Id
-	@Column(name="IDX_NO", nullable = false)
-	private int idx_no;
+	@Column(name="IDX", nullable = false)
+	private int idx;
 	
 	@Column(name="ID", length=10, nullable = false, unique = true)
-	private String id;
+	private String memberid;
 	
 	@Column(name="PASSWORD", length = 15, nullable = false)
 	private String password;
@@ -32,8 +32,8 @@ public class Member {
 	@Column(name="EMAIL", length = 26, nullable = false)
 	private String email;
 	
-	@Column(name="PHONE_NO", length = 11, nullable = false)
-	private int phone_no;
+	@Column(name="PHONENOMBER", length = 11, nullable = false)
+	private String phonenomber;
 	
 	@Column(name="REGDATE", length = 11, nullable = false)
 	private String regdate;
