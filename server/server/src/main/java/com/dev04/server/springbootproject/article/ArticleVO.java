@@ -13,26 +13,26 @@ import lombok.Setter;
 @Entity
 @Table(name="ARTICLE")
 public class ArticleVO {
+//	@SequenceGenerator(name = "article_seq", sequenceName ="article_no",initialValue = 1,allocationSize = 1)
 	@Id
-	@SequenceGenerator(name = "article_seq", sequenceName ="article_no",initialValue = 1,allocationSize = 1)
-	@Column(name="ARTICLE_NO",length=10,nullable = false)
-	private int article_no;
+	@Column(name="NO",nullable = false)
+	private int no;
 	
 	@Column(name="TITLE",length=100,nullable = false)
 	private String title;
 	
-	@Column(name="WRITER_ID",length=10,nullable = false)
-	private String writer_id;
+	@Column(name="WRITERID",length=10,nullable = false)
+	private String writerid;
 	
-	@Column(name="WRITER_NAME",length=25,nullable = false)
-	private String writer_name;
+	@Column(name="WRITERNAME",length=25,nullable = false)
+	private String writername;
 	
-	@Column(name="CONTENT",columnDefinition ="TEXT",nullable = false)
+	@Column(name="CONTENT")
 	private String content;
 	
 	@Column(name="REGDATE",length=11,nullable = false)
-	private String article_regDate;
+	private String regDate;
 	
-	@Column(name="READ_CNT",nullable= false)
-	private int read_cnt;
+	@Column(name="READCNT",nullable= false)
+	private int readcnt;
 }
