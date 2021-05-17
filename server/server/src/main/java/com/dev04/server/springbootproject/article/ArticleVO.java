@@ -3,6 +3,7 @@ package com.dev04.server.springbootproject.article;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
@@ -27,7 +28,7 @@ public class ArticleVO {
 	@Column(name="WRITERNAME",length=25,nullable = false)
 	private String writerName;
 	
-	@Column(name="CONTENT")
+	@Column(name="CONTENT")@Lob
 	private String content;
 	
 	@Column(name="REGDATE",length=11,nullable = false)
