@@ -24,5 +24,17 @@ public class MemberController {
 		
 	}
 	
+	@PostMapping("/myPage")
+	public MemberVO myPage(MemberVO memberVO) {
+		
+		return memberService.myPage(memberVO).get();
+	}
+	
+	@PostMapping("/changeMyInfo")
+	public void update(MemberVO memberVO) {
+		
+		memberService.update(memberVO);
+	}
+	
 	
 }

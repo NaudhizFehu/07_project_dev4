@@ -21,8 +21,18 @@ public class MemberService {
 	public Optional<MemberVO> login(MemberVO memberVO) {
 	
 	return mr.findByMemberidAndPassword(memberVO.getMemberid(), memberVO.getPassword());
-		 
+		
+		
+	}
 	
+	public Optional<MemberVO> myPage(MemberVO memberVO){
+		
+		return mr.findByMemberid(memberVO.getMemberid());
+		
+	}
+	
+	public void update(MemberVO memberVO) {
+		mr.save(memberVO);
 		
 	}
 	

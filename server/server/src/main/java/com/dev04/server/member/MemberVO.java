@@ -4,6 +4,7 @@ package com.dev04.server.member;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 
@@ -17,6 +18,7 @@ import lombok.Setter;
 public class MemberVO {
 	
 	@Id
+	@SequenceGenerator(name = "memberseq", sequenceName = "no_seq", initialValue = 1 , allocationSize = 1 )
 	@Column(name="IDX", nullable = false)
 	private int idx;
 	
