@@ -7,7 +7,7 @@ import lombok.Setter;
 public class MemberDTO {
 	
 	
-	private String memberId;
+	private String id;
 	private String password;
 	
 	
