@@ -23,7 +23,7 @@ public class MemberVO {
 	private int idx;
 	
 	@Column(name="ID", length=10, nullable = false, unique = true)
-	private String memberid;
+	private String memberId;
 	
 	@Column(name="PASSWORD", length = 15, nullable = false)
 	private String password;
