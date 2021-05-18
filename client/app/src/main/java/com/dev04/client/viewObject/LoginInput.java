@@ -1,20 +1,20 @@
 package com.dev04.client.viewObject;
 
 public class LoginInput {
-    private String memberid;
+    private String id;
     private String password;
 
     public LoginInput(String id, String password) {
-        this.memberid = id;
+        this.id = id;
         this.password = password;
     }
 
     public String getId() {
-        return memberid;
+        return id;
     }
 
     public void setId(String id) {
-        this.memberid = id;
+        this.id = id;
     }
 
     public String getPassword() {
