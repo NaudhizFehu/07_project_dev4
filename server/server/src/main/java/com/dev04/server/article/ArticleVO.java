@@ -1,4 +1,4 @@
-package com.dev04.server.springbootproject.article;
+package com.dev04.server.article;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

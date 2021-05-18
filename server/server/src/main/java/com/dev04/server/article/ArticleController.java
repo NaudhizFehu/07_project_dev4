@@ -1,6 +1,7 @@
-package com.dev04.server.springbootproject.article;
+package com.dev04.server.article;
 
 import java.awt.print.Pageable;
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,10 +20,14 @@ public class ArticleController {
 	private ArticleService articleService;
 
 	//게시글리스트
-//	@GetMapping("/listArticle")
-//	public Page<ArticleVO> list(Pageable pageable){
-//		return articleService.articleList(pageable);
-//	}
+	@GetMapping("/listArticle")
+	public List<ArticleVO> list(ArticleVO vo){
+		return articleService.listArticle(vo);
+	}
+	@GetMapping("/listArticle")
+	public Page<ArticleVO> list(Pageable pageable){
+		return articleService.articleList(pageable);
+	}
 	//게시글 읽기
 	@GetMapping("/readArticle")
 	public Optional<ArticleVO> readArticle(ArticleVO vo){

@@ -1,6 +1,7 @@
-package com.dev04.server.springbootproject.article;
+package com.dev04.server.article;
 
 import java.awt.print.Pageable;
+import java.util.List;
 import java.util.Optional;
 
 import javax.transaction.Transactional;
@@ -29,9 +30,12 @@ public class ArticleService {
 	public Optional<ArticleVO> readArticle(ArticleVO vo) {
 		return rp.findByNo(vo.getNo());
 	}
-	
-//	public Page<ArticleVO> articleList(Pageable pageable) {
-//		Page<ArticleVO> articlePage =rp.findAll(pageable);
-//		return articlePage;
-//	}
+	//게시글리스트
+	public List<ArticleVO> listArticle(ArticleVO vo) {
+		return rp.findAll();
+	}
+	public Page<ArticleVO> articleList(Pageable pageable) {
+		Page<ArticleVO> articlePage =rp.findAll(pageable);
+		return articlePage;
+	}
 }
