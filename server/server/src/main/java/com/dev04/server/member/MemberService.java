@@ -18,16 +18,16 @@ public class MemberService {
 					
 	}
 	
-	public Optional<MemberVO> login(MemberVO memberVO) {
+	public Optional<MemberVO> login(MemberDTO memberDTO) {
 	
-	return mr.findByMemberidAndPassword(memberVO.getMemberid(), memberVO.getPassword());
+	return mr.findByMemberIdAndPassword(memberDTO.getMemberId(), memberDTO.getPassword());
 		
 		
 	}
 	
 	public Optional<MemberVO> myPage(MemberVO memberVO){
 		
-		return mr.findByMemberid(memberVO.getMemberid());
+		return mr.findByMemberId(memberVO.getMemberId());
 		
 	}
 	
@@ -38,7 +38,7 @@ public class MemberService {
 	
 	public Optional<MemberVO> delete(MemberVO memberVO){
 		
-		return mr.deleteByMemberidAndPassword(memberVO.getMemberid(), memberVO.getPassword());
+		return mr.deleteByMemberIdAndPassword(memberVO.getMemberId(), memberVO.getPassword());
 				
 	}
 	
