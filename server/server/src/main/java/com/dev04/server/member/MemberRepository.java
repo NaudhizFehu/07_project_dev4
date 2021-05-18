@@ -9,6 +9,8 @@ public interface MemberRepository extends JpaRepository<MemberVO, String>{
 	Optional<MemberVO> findByMemberidAndPassword(String memberid, String password);
 
 	Optional<MemberVO> findByMemberid(String memberid);
+
+	Optional<MemberVO> deleteByMemberidAndPassword(String memberid, String password);
 	
 	
 }

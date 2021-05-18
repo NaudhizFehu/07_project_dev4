@@ -36,5 +36,12 @@ public class MemberService {
 		
 	}
 	
+	public Optional<MemberVO> delete(MemberVO memberVO){
+		
+		return mr.deleteByMemberidAndPassword(memberVO.getMemberid(), memberVO.getPassword());
+				
+	}
+	
+	
 	
 }

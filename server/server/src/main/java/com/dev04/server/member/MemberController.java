@@ -36,5 +36,10 @@ public class MemberController {
 		memberService.update(memberVO);
 	}
 	
+	@PostMapping("/quit")
+	public MemberVO quit(MemberVO memberVO) {
+		
+		return memberService.delete(memberVO).get();
+	}
 	
 }
