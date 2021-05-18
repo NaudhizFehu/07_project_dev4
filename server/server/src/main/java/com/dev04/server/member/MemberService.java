@@ -19,7 +19,7 @@ public class MemberService {
 	}
 	
 	public Optional<MemberVO> login(MemberVO memberVO) {
-	
+	System.out.println(0000);
 	return mr.findByMemberidAndPassword(memberVO.getMemberid(), memberVO.getPassword());
 		
 		

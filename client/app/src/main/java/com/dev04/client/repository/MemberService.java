@@ -13,7 +13,7 @@ public interface MemberService {
 //    @GET("member")
 //    Call<List<Member>> getAllMembers();
 //
-    @POST("member/login")
+    @POST("login")
     Call<MemberVO> loginMember(@Body LoginInput loginInput);
 //
 //    @Multipart
