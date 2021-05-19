@@ -24,17 +24,26 @@ public class ArticleServiceTest {
 		vo.setNo(1);
 		vo.setTitle("안녕");
 		vo.setContent("안녕하세요");
-		vo.setWriterid("서주영");
-		vo.setWritername("성민주");
+		vo.setWriterId("서주영");
+		vo.setWriterName("성민주");
 		vo.setRegDate("A");
-		vo.setReadcnt(12);
+		vo.setReadCnt(12);
 		System.out.println("게시글생성");
 
 		articleservice.writeArticle(vo);
 		System.out.println("생성완료");
+		
+//		articleservice.deleteArticle(vo);
+//		System.out.println("삭제완료");
+		
+		vo.setContent("변경된건가");
+		articleservice.updateArticle(vo);
+		System.out.println("변경완료");
+		
 
-		Optional<ArticleVO> articlelist = repository.findByno(vo.getNo());
+		Optional<ArticleVO> articlelist = repository.findByNo(vo.getNo());
 		System.out.println("이건?");
+		
 		ArticleVO ar = null;
 		if (articlelist.isPresent()) {
 			ar = articlelist.get();

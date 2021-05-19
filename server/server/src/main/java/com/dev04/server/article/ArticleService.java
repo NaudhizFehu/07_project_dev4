@@ -1,6 +1,7 @@
-package com.dev04.server.springbootproject.article;
+package com.dev04.server.article;
 
 import java.awt.print.Pageable;
+import java.util.List;
 import java.util.Optional;
 
 import javax.transaction.Transactional;
@@ -13,21 +14,28 @@ import org.springframework.stereotype.Service;
 public class ArticleService {
 	@Autowired
 	 private Repository rp;
-	 
+	 //글쓰기
 	public void writeArticle(ArticleVO vo) {
 		rp.save(vo);
 	}
+	//글수정
 	public void updateArticle(ArticleVO vo) {
 		rp.save(vo);
 	}
-	public Optional<ArticleVO> readArticle(ArticleVO vo) {
-		 return rp.findById(String.format("%d", vo.getNo()));
-	}
+	//글삭제
 	public void deleteArticle(ArticleVO vo) {
 		rp.delete(vo);
 	}
-//	public Page<ArticleVO> articleList(Pageable pageable) {
-//		Page<ArticleVO> articlePage =rp.findAll(pageable);
-//		return articlePage;
-//	}
+	//게시글읽기
+	public Optional<ArticleVO> readArticle(ArticleVO vo) {
+		return rp.findByNo(vo.getNo());
+	}
+	//게시글리스트
+	public List<ArticleVO> listArticle(ArticleVO vo) {
+		return rp.findAll();
+	}
+	public Page<ArticleVO> articleList(Pageable pageable) {
+		Page<ArticleVO> articlePage =rp.findAll(pageable);
+		return articlePage;
+	}
 }
