@@ -14,7 +14,11 @@ import org.springframework.stereotype.Service;
 public class ArticleService {
 	@Autowired
 	 private Repository rp;
-	 //글쓰기
+	//게시글리스트
+	public List<ArticleVO> listArticle() {
+		return rp.findAll();
+	}
+	//글쓰기
 	public void writeArticle(ArticleVO vo) {
 		rp.save(vo);
 	}
@@ -31,12 +35,5 @@ public class ArticleService {
 		System.out.println(vo.getNo());
 		return rp.findByNo(vo.getNo());
 	}
-//	//게시글리스트
-//	public List<ArticleVO> listArticle(ArticleVO vo) {
-//		return rp.findAll();
-//	}
-//	public Page<ArticleVO> articleList(Pageable pageable) {
-//		Page<ArticleVO> articlePage =rp.findAll(pageable);
-//		return articlePage;
-//	}
+
 }

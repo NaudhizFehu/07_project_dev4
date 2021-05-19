@@ -1,9 +1,11 @@
 package com.dev04.server.article;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -14,15 +16,11 @@ public class ArticleController {
 	@Autowired
 	private ArticleService articleService;
 
-//	//게시글리스트
-//	@GetMapping("/listArticle")
-//	public List<ArticleVO> list(@RequestBody ArticleVO vo){
-//		return articleService.listArticle(vo);
-//	}
-//	@GetMapping("/listArticle")
-//	public Page<ArticleVO> list(@RequestBody Pageable pageable){
-//		return articleService.articleList(pageable);
-//	}
+	//게시글리스트
+	@GetMapping("/listArticle")
+	public List<ArticleVO> list(){
+		return articleService.listArticle();
+	}
 	//게시글 읽기
 	@PostMapping("/readArticle")
 	public Optional<ArticleVO> readArticle(@RequestBody ArticleVO vo){
