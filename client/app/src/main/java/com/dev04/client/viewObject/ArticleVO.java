@@ -3,7 +3,7 @@ package com.dev04.client.viewObject;
 import retrofit2.Callback;
 
 public class ArticleVO {
-    private int no;
+    private Integer no;
     private String title;
     private String writerId;
     private String writerName;
@@ -11,7 +11,7 @@ public class ArticleVO {
     private String regDate;
     private int readCnt;
 
-    public ArticleVO(int no) {
+    public ArticleVO(Integer no) {
         this.no = no;
     }
 

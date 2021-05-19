@@ -28,14 +28,15 @@ public class ArticleService {
 	}
 	//게시글읽기
 	public Optional<ArticleVO> readArticle(ArticleVO vo) {
+		System.out.println(vo.getNo());
 		return rp.findByNo(vo.getNo());
 	}
-	//게시글리스트
-	public List<ArticleVO> listArticle(ArticleVO vo) {
-		return rp.findAll();
-	}
-	public Page<ArticleVO> articleList(Pageable pageable) {
-		Page<ArticleVO> articlePage =rp.findAll(pageable);
-		return articlePage;
-	}
+//	//게시글리스트
+//	public List<ArticleVO> listArticle(ArticleVO vo) {
+//		return rp.findAll();
+//	}
+//	public Page<ArticleVO> articleList(Pageable pageable) {
+//		Page<ArticleVO> articlePage =rp.findAll(pageable);
+//		return articlePage;
+//	}
 }

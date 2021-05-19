@@ -8,6 +8,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface Repository extends JpaRepository<ArticleVO, String>{
 
-	Page<ArticleVO> findAll(Pageable request);
+//	Page<ArticleVO> findAll(Pageable request);
 	Optional<ArticleVO> findByNo(int no);
 }

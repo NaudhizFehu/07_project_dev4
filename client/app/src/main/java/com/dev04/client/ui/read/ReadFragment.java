@@ -1,6 +1,7 @@
 package com.dev04.client.ui.read;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -29,12 +30,15 @@ public class ReadFragment extends Fragment {
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        Log.i("hans", "onCreateView 실행");
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_read, container, true);
+        Log.i("hans", "onCreateView 리턴직전");
         return binding.getRoot();
     }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        Log.i("hans", "onViewCreated 실행");
         super.onViewCreated(view, savedInstanceState);
         readViewModel = new ViewModelProvider(this, new ViewModelFactory()).get(ReadViewModel.class);
         readViewModel.readArticle(new Callback<ArticleVO>() {
