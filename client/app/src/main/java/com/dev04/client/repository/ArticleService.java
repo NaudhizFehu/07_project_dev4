@@ -1,6 +1,7 @@
 package com.dev04.client.repository;
 
 
+import com.dev04.client.viewObject.ArticleVO;
 import com.dev04.client.viewObject.LoginInput;
 import com.dev04.client.viewObject.MemberVO;
 
@@ -13,8 +14,8 @@ public interface ArticleService {
 //    @GET("member")
 //    Call<List<Member>> getAllMembers();
 //
-//    @POST("member/login")
-//    Call<MemberVO> loginMember(@Body LoginInput loginInput);
+    @POST("readArticle")
+    Call<ArticleVO> readArticle(@Body ArticleVO articleVO);
 //
 //    @Multipart
 //    @POST("member/sign-up")

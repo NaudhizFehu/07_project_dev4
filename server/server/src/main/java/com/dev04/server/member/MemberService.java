@@ -15,26 +15,24 @@ public class MemberService {
 
 	public void join(MemberVO memberVO) {
 		mr.save(memberVO);
-					
 	}
 	
-	public Optional<MemberVO> login(MemberVO memberVO) {
-	
-	return mr.findByMemberidAndPassword(memberVO.getMemberid(), memberVO.getPassword());
-		
-		
+	public Optional<MemberVO> login(MemberDTO memberDTO) {
+		return mr.findByIdAndPassword(memberDTO.getId(), memberDTO.getPassword());
 	}
 	
 	public Optional<MemberVO> myPage(MemberVO memberVO){
-		
-		return mr.findByMemberid(memberVO.getMemberid());
-		
+		return mr.findById(memberVO.getId());
 	}
 	
 	public void update(MemberVO memberVO) {
 		mr.save(memberVO);
-		
 	}
+	
+	public Optional<MemberVO> delete(MemberVO memberVO){
+		return mr.deleteByIdAndPassword(memberVO.getId(), memberVO.getPassword());
+	}
+	
 	
 	
 }

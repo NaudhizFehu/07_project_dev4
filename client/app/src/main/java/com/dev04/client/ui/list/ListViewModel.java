@@ -10,7 +10,7 @@ import java.util.List;
 
 public class ListViewModel extends ViewModel {
 
-    private ArticleRepository repository;
+    private final ArticleRepository repository;
 
     private MutableLiveData<List<ArticleVO>> articleList;
 

@@ -6,9 +6,9 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface MemberRepository extends JpaRepository<MemberVO, String>{
 	
-	Optional<MemberVO> findByMemberidAndPassword(String memberid, String password);
+	Optional<MemberVO> findByIdAndPassword(String Id, String Password);
 
-	Optional<MemberVO> findByMemberid(String memberid);
+	Optional<MemberVO> deleteByIdAndPassword(String Id, String Password);
 	
 	
 }

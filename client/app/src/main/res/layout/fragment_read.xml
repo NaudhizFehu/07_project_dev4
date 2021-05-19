@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="article"
+            type="com.dev04.client.viewObject.ArticleVO" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/title"
+            android:padding="15dp"
+            android:text="@{article.title}"
+            tools:text="제목"
+            android:textSize="30dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/writerName"
+            android:padding="15dp"
+            android:text="@{article.writerName}"
+            tools:text="작성자"
+            android:textSize="15dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/content"
+            android:padding="15dp"
+            android:text="@{article.content}"
+            tools:text="본문 예시\n갈 길이 먼데 빈차가 없네\n비가 올거 같은데\n젖은 어깨에 오늘의 무게\n잠시 내려놓고 싶어\nHome is faraway"
+            android:textSize="15dp" />
+
+
+
+
+
+
+
+    </LinearLayout>
+</layout>
