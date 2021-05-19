@@ -1,5 +1,7 @@
 package com.dev04.server.member;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Optional;
 
 import javax.transaction.Transactional;
@@ -14,6 +16,9 @@ public class MemberService {
 	MemberRepository mr;
 
 	public void join(MemberVO memberVO) {
+		SimpleDateFormat format = new SimpleDateFormat("yyyy/MM/dd");
+		Date date = new Date();
+		memberVO.setRegDate(format.format(date).substring(2));
 		mr.save(memberVO);
 	}
 	

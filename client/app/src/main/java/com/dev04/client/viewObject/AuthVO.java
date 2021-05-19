@@ -1,18 +1,18 @@
 package com.dev04.client.viewObject;
 
-public class LoginAccount {
-    private static LoginAccount instance;
+public class AuthVO {
+    private static AuthVO instance;
 
-    public static LoginAccount getInstance() {
+    public static AuthVO getInstance() {
         if (instance == null) {
-            instance = new LoginAccount();
+            instance = new AuthVO();
         }
         return instance;
     }
 
     private MemberVO memberVO;
 
-    private LoginAccount() { }
+    private AuthVO() { }
 
     public void setMember(MemberVO memberVO) {
         this.memberVO = memberVO;

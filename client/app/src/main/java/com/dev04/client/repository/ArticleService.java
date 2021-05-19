@@ -2,8 +2,6 @@ package com.dev04.client.repository;
 
 
 import com.dev04.client.viewObject.ArticleVO;
-import com.dev04.client.viewObject.LoginInput;
-import com.dev04.client.viewObject.MemberVO;
 
 import retrofit2.Call;
 import retrofit2.http.Body;

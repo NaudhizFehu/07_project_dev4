@@ -4,7 +4,6 @@ import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
 import com.dev04.client.repository.MemberRepository;
-import com.dev04.client.viewObject.LoginInput;
 import com.dev04.client.viewObject.MemberVO;
 
 import retrofit2.Callback;
@@ -25,7 +24,7 @@ public class LoginViewModel extends ViewModel {
      * @param callback 요청에 대한 응답 콜백
      */
     void login(Callback<MemberVO> callback) {
-        repository.loginMember(new LoginInput(id.getValue(), password.getValue()), callback);
+        repository.loginMember(new MemberVO(id.getValue(), password.getValue()), callback);
     }
 
     /**

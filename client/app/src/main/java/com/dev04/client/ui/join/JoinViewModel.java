@@ -21,7 +21,7 @@ public class JoinViewModel extends ViewModel {
     public MutableLiveData<String> name;
     public MutableLiveData<String> email;
     public MutableLiveData<String> phone;
-    public MutableLiveData<String> path;
+//    public MutableLiveData<String> path;
 
     public JoinViewModel(MemberRepository repository) {
         this.repository = repository;
@@ -31,28 +31,28 @@ public class JoinViewModel extends ViewModel {
         name = new MutableLiveData<>();
         email = new MutableLiveData<>();
         phone = new MutableLiveData<>();
-        path = new MutableLiveData<>();
+//        path = new MutableLiveData<>();
     }
 
     // 회원가입 버튼
-    void Join(Callback<Void> callback) {
+    public void join(Callback<Void> callback) {
         MemberVO member = new MemberVO(
                 id.getValue(),
                 password.getValue(),
                 name.getValue(),
                 email.getValue(),
-                phone.getValue(),
-                path.getValue()
+                phone.getValue()
+//                , path.getValue()
         );
 
-        File file = new File(path.getValue());
+//        File file = new File(path.getValue());
 
         // 리포지터리의 메소드 호출
-//        repository.signUpMember(member, file, callback);
+        repository.joinMember(member, callback);
     }
 
     // 데이터 유효성 검사
-    boolean validateJoinInfo() {
+    public boolean validateJoinInfo() {
         return validateIdAndName()
                 && validatePassword()
                 && validateEmail()
@@ -60,7 +60,7 @@ public class JoinViewModel extends ViewModel {
     }
 
     // ID, 이름 유효성 검사
-    boolean validateIdAndName() {
+    public boolean validateIdAndName() {
         return id.getValue() != null
                 && !id.getValue().contains(" ")
                 && name.getValue() != null
@@ -68,14 +68,14 @@ public class JoinViewModel extends ViewModel {
     }
 
     // 비밀번호 유효성 검사 및 일치 여부 확인
-    boolean validatePassword() {
+    public boolean validatePassword() {
         return password.getValue() != null
                 && passwordConfirm.getValue() != null
                 && password.getValue().equals(passwordConfirm.getValue());
     }
 
     // 이메일 유효성 검사
-    boolean validateEmail() {
+    public boolean validateEmail() {
         if (email.getValue() != null) {
             return email.getValue().matches("[\\S]+@[\\S]+");
         }
@@ -83,7 +83,7 @@ public class JoinViewModel extends ViewModel {
     }
 
     // 썸네일 유효성 검사
-    boolean validateProfile() {
-        return path.getValue() != null;
-    }
+//    boolean validateProfile() {
+//        return path.getValue() != null;
+//    }
 }

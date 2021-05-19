@@ -33,15 +33,12 @@ public class ReadFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater,
                              @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
-        Log.i("hans", "onCreateView 실행");
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_read, container, false);
-        Log.i("hans", "onCreateView 리턴직전");
         return binding.getRoot();
     }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        Log.i("hans", "onViewCreated 실행");
         super.onViewCreated(view, savedInstanceState);
         readViewModel = new ViewModelProvider(this, new ViewModelFactory()).get(ReadViewModel.class);
         readViewModel.readArticle(new Callback<ArticleVO>() {

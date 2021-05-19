@@ -20,7 +20,7 @@ public class MemberController {
 	}
 	
 	@PostMapping("/join")
-	public void join(MemberVO memberVO) {
+	public void join(@RequestBody MemberVO memberVO) {
 		memberService.join(memberVO);		
 	}
 	

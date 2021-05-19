@@ -5,7 +5,7 @@ package com.dev04.client.viewObject;
  */
 public class MemberVO {
     private int idx;
-    private String memberid;
+    private String id;
     private String password;
     private String name;
     private String email;
@@ -15,13 +15,20 @@ public class MemberVO {
 
     private boolean isChecked;
 
-    public MemberVO(String memberid, String password, String name, String email, String phoneNumber, String path) {
-        this.memberid = memberid;
+    public MemberVO(String id, String password){
+        this.id = id;
+        this.password = password;
+    }
+
+    public MemberVO(String id, String password, String name, String email, String phoneNumber
+//            , String path
+    ) {
+        this.id = id;
         this.password = password;
         this.name = name;
         this.email = email;
         this.phoneNumber = phoneNumber;
-        this.path = path;
+//        this.path = path;
     }
 
     public int getIdx() {
@@ -29,7 +36,7 @@ public class MemberVO {
     }
 
     public String getId() {
-        return memberid;
+        return id;
     }
 
     public String getPassword() {
@@ -60,8 +67,8 @@ public class MemberVO {
         this.idx = idx;
     }
 
-    public void setId(String memberid) {
-        this.memberid = memberid;
+    public void setId(String id) {
+        this.id = id;
     }
 
     public void setPassword(String password) {

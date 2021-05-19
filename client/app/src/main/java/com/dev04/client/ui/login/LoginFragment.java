@@ -21,7 +21,7 @@ import com.dev04.client.ViewModelFactory;
 import com.dev04.client.databinding.FragmentLoginBinding;
 import com.dev04.client.ui.join.JoinFragment;
 import com.dev04.client.ui.read.ReadFragment;
-import com.dev04.client.viewObject.LoginAccount;
+import com.dev04.client.viewObject.AuthVO;
 import com.dev04.client.viewObject.MemberVO;
 
 import retrofit2.Call;
@@ -72,7 +72,7 @@ public class LoginFragment extends Fragment {
                     if (response.isSuccessful()) {
                         MemberVO memberVO = response.body();
                         // 로그인된 회원 정보 저장
-                        LoginAccount.getInstance().setMember(memberVO);
+                        AuthVO.getInstance().setMember(memberVO);
 
                         // 팝업 메세지
                         if (requireActivity() != null) {
