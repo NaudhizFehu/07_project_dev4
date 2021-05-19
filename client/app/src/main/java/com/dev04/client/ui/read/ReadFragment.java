@@ -28,10 +28,13 @@ public class ReadFragment extends Fragment {
     private FragmentReadBinding binding;
     private ReadViewModel readViewModel;
 
+    @Nullable
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+    public View onCreateView(@NonNull LayoutInflater inflater,
+                             @Nullable ViewGroup container,
+                             @Nullable Bundle savedInstanceState) {
         Log.i("hans", "onCreateView 실행");
-        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_read, container, true);
+        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_read, container, false);
         Log.i("hans", "onCreateView 리턴직전");
         return binding.getRoot();
     }
@@ -51,7 +54,7 @@ public class ReadFragment extends Fragment {
                     binding.writerName.setText(vo.getWriterName());
                     binding.content.setText(vo.getContent());
                 } else if (requireActivity() != null){
-                    Toast.makeText(requireActivity().getApplicationContext(), "게시글 읽기 싪패", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(requireActivity().getApplicationContext(), "게시글 읽기 실패", Toast.LENGTH_SHORT).show();
                 }
             }
 

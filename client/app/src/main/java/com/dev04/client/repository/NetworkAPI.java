@@ -19,6 +19,8 @@ public class NetworkAPI {
     }
 
     private final MemberService memberService;
+    private final ArticleService articleService;
+
 
     private NetworkAPI() {
         memberService = new Retrofit.Builder()
@@ -26,10 +28,16 @@ public class NetworkAPI {
                 .addConverterFactory(MoshiConverterFactory.create())
                 .build()
                 .create(MemberService.class);
+        articleService = new Retrofit.Builder()
+                .baseUrl(SERVER_BASE_URL)
+                .addConverterFactory(MoshiConverterFactory.create())
+                .build()
+                .create(ArticleService.class);
     }
 
     public MemberService getMemberService() {
         return memberService;
     }
+    public ArticleService getArticleService() { return articleService; }
 }
 
