@@ -1,5 +1,7 @@
 package com.dev04.client.viewObject;
 
+import retrofit2.Callback;
+
 public class ArticleVO {
     private int no;
     private String title;
@@ -9,11 +11,8 @@ public class ArticleVO {
     private String regDate;
     private int readCnt;
 
-    public ArticleVO(String title, String writerId, String writerName, String content) {
-        this.title = title;
-        this.writerId = writerId;
-        this.writerName = writerName;
-        this.content = content;
+    public ArticleVO(int no) {
+        this.no = no;
     }
 
     public int getNo() {

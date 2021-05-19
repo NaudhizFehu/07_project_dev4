@@ -2,6 +2,7 @@ package com.dev04.client.repository;
 
 
 
+import com.dev04.client.viewObject.ArticleVO;
 import com.dev04.client.viewObject.LoginInput;
 import com.dev04.client.viewObject.MemberVO;
 
@@ -14,9 +15,9 @@ public class ArticleRepository {
         this.articleService = articleService;
     }
 
-//    public void loginMember(LoginInput loginInput, Callback<MemberVO> callback) {
-//        boardService.loginMember(loginInput).enqueue(callback);
-//    }
+    public void readArticle(ArticleVO articleVO, Callback<ArticleVO> callback) {
+        articleService.readArticle(articleVO).enqueue(callback);
+    }
 
 //    public void signUpMember(Member member, File file, Callback<Void> callback) {
 //        MultipartBody.Part profileFile = MultipartBody.Part.createFormData(
