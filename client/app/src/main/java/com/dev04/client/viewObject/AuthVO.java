@@ -18,7 +18,7 @@ public class AuthVO {
         this.memberVO = memberVO;
     }
 
-    public MemberVO getMember() {
+    public MemberVO getMemberVO() {
         return memberVO;
     }
 }

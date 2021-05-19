@@ -2,6 +2,9 @@ package com.dev04.client.repository;
 
 
 
+import android.util.Log;
+
+import com.dev04.client.viewObject.AuthVO;
 import com.dev04.client.viewObject.MemberVO;
 
 import java.io.File;
@@ -25,6 +28,10 @@ public class MemberRepository {
 
     public void joinMember(MemberVO memberVO, Callback<Void> callback){
         memberService.joinMember(memberVO).enqueue(callback);
+    }
+
+    public void myPageMember(MemberVO memberVO, Callback<MemberVO> callback){
+        memberService.myPageMember(memberVO).enqueue(callback);
     }
 
 //    public void signUpMember(Member member, File file, Callback<Void> callback) {

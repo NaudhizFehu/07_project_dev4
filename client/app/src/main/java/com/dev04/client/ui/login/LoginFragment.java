@@ -20,6 +20,7 @@ import com.dev04.client.R;
 import com.dev04.client.ViewModelFactory;
 import com.dev04.client.databinding.FragmentLoginBinding;
 import com.dev04.client.ui.join.JoinFragment;
+import com.dev04.client.ui.myPage.MyPageFragment;
 import com.dev04.client.ui.read.ReadFragment;
 import com.dev04.client.viewObject.AuthVO;
 import com.dev04.client.viewObject.MemberVO;
@@ -80,7 +81,7 @@ public class LoginFragment extends Fragment {
                         }
 
                         // 로그인시 화면 전환
-                        ((MainActivity) requireActivity()).navigateTo(new ReadFragment(), false);
+                        ((MainActivity) requireActivity()).navigateTo(new MyPageFragment(), false);
                     } else if (requireActivity() != null) {
                         Toast.makeText(requireActivity().getApplicationContext(), "회원가입을 해주세요.", Toast.LENGTH_SHORT).show();
                     }

@@ -9,8 +9,8 @@ import com.dev04.client.repository.MemberRepository;
 import com.dev04.client.repository.NetworkAPI;
 import com.dev04.client.ui.join.JoinViewModel;
 import com.dev04.client.ui.login.LoginViewModel;
+import com.dev04.client.ui.myPage.MyPageViewModel;
 import com.dev04.client.ui.read.ReadViewModel;
-
 
 public class ViewModelFactory implements ViewModelProvider.Factory {
 
@@ -26,6 +26,8 @@ public class ViewModelFactory implements ViewModelProvider.Factory {
             return (T) new ReadViewModel(articleRepository);
         } else if (modelClass.isAssignableFrom(JoinViewModel.class)) {
             return (T) new JoinViewModel(memberRepository);
+        } else if (modelClass.isAssignableFrom(MyPageViewModel.class)) {
+            return (T) new MyPageViewModel(memberRepository);
 //        } else if (modelClass.isAssignableFrom(ModifyViewModel.class)) {
 //            return (T) new ModifyViewModel(memberRepository);
 //        } else if (modelClass.isAssignableFrom(MemberListViewModel.class)) {

@@ -1,6 +1,7 @@
 package com.dev04.client.repository;
 
 
+import com.dev04.client.viewObject.AuthVO;
 import com.dev04.client.viewObject.MemberVO;
 
 import java.lang.reflect.Member;
@@ -24,6 +25,8 @@ public interface MemberService {
     Call<Void> joinMember(@Body MemberVO memberVo);
 //    Call<Void> join(@Part("member") Member member, @Part MultipartBody.Part profileFile);
 
+    @POST("myPage")
+    Call<MemberVO> myPageMember(@Body MemberVO memberVO);
 //    @Multipart
 //    @POST("member/modify-profile")
 //    Call<Void> modifyMemberWithProfile(@Part("member") Member member, @Part MultipartBody.Part profileFile);
