@@ -5,6 +5,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -13,12 +14,17 @@ import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
+import com.dev04.client.MainActivity;
 import com.dev04.client.R;
 import com.dev04.client.ViewModelFactory;
 import com.dev04.client.databinding.FragmentMypageBinding;
+import com.dev04.client.ui.join.JoinFragment;
+import com.dev04.client.ui.modify.ModifyFragment;
 import com.dev04.client.ui.read.ReadViewModel;
 import com.dev04.client.viewObject.ArticleVO;
 import com.dev04.client.viewObject.MemberVO;
+
+import java.lang.reflect.Member;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -46,8 +52,8 @@ public class MyPageFragment extends Fragment {
             @Override
             public void onResponse(Call<MemberVO> call, Response<MemberVO> response) {
                 if(response.isSuccessful()){
-                    myPageViewModel.setMemberVO(response.body());
-                    MemberVO vo = myPageViewModel.getMemberVO();
+                    myPageViewModel.getMemberVO().setValue(response.body());
+                    MemberVO vo = myPageViewModel.getMemberVO().getValue();
                     binding.mypageId.setText(vo.getId());
                     binding.mypageName.setText(vo.getName());
                     binding.mypageEmail.setText(vo.getEmail());
@@ -64,5 +70,19 @@ public class MyPageFragment extends Fragment {
                 }
             }
         });
+
+        final Button modifyButton = view.findViewById(R.id.modify_btn);
+        modifyButton.setOnClickListener(v -> {
+            MemberVO vo = myPageViewModel.getMemberVO().getValue();
+            ((MainActivity) requireActivity()).navigateTo(new ModifyFragment(vo), true);
+        });
+
+        final Button quitButton = view.findViewById(R.id.quit_btn);
+        quitButton.setOnClickListener(v -> {
+//            ((MainActivity) requireActivity()).navigateTo(new QuitFragment(), true);
+        });
+
     }
+
+
 }

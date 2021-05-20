@@ -18,17 +18,18 @@ public class MyPageViewModel extends ViewModel {
     private MemberVO authVO = AuthVO.getInstance().getMemberVO();
 
     // 응답값
-    private MemberVO memberVO;
+    private MutableLiveData<MemberVO> memberVO;
 
     public MyPageViewModel(MemberRepository repository){
         this.repository = repository;
+        memberVO = new MutableLiveData<>();
     }
 
-    public MemberVO getMemberVO() {
+    public MutableLiveData<MemberVO> getMemberVO() {
         return memberVO;
     }
 
-    public void setMemberVO(MemberVO memberVO) {
+    public void setMemberVO(MutableLiveData<MemberVO> memberVO) {
         this.memberVO = memberVO;
     }
 

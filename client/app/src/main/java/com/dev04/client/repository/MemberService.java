@@ -27,6 +27,9 @@ public interface MemberService {
 
     @POST("myPage")
     Call<MemberVO> myPageMember(@Body MemberVO memberVO);
+
+    @POST("changeMyInfo")
+    Call<Void> modyfiMember(@Body MemberVO memberVO);
 //    @Multipart
 //    @POST("member/modify-profile")
 //    Call<Void> modifyMemberWithProfile(@Part("member") Member member, @Part MultipartBody.Part profileFile);

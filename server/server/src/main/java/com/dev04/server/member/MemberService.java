@@ -44,6 +44,7 @@ public class MemberService {
 	}
 
 	public void update(MemberVO memberVO) {
+		memberVO.setRegDate(mr.findById(memberVO.getId()).get().getRegDate());
 		mr.save(memberVO);
 
 	}

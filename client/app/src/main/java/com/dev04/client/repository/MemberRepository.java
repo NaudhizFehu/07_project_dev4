@@ -34,6 +34,10 @@ public class MemberRepository {
         memberService.myPageMember(memberVO).enqueue(callback);
     }
 
+    public void modifyMember(MemberVO memberVO, Callback<Void> callback){
+        memberService.modyfiMember(memberVO).enqueue(callback);
+    }
+
 //    public void signUpMember(Member member, File file, Callback<Void> callback) {
 //        MultipartBody.Part profileFile = MultipartBody.Part.createFormData(
 //                "profilePic",
