@@ -11,6 +11,7 @@ import com.dev04.client.ui.join.JoinViewModel;
 import com.dev04.client.ui.login.LoginViewModel;
 import com.dev04.client.ui.modify.ModifyViewModel;
 import com.dev04.client.ui.myPage.MyPageViewModel;
+import com.dev04.client.ui.quit.QuitViewModel;
 import com.dev04.client.ui.read.ReadViewModel;
 
 public class ViewModelFactory implements ViewModelProvider.Factory {
@@ -31,8 +32,8 @@ public class ViewModelFactory implements ViewModelProvider.Factory {
             return (T) new MyPageViewModel(memberRepository);
         } else if (modelClass.isAssignableFrom(ModifyViewModel.class)) {
             return (T) new ModifyViewModel(memberRepository);
-//        } else if (modelClass.isAssignableFrom(MemberListViewModel.class)) {
-//            return (T) new MemberListViewModel(memberRepository);
+        } else if (modelClass.isAssignableFrom(QuitViewModel.class)) {
+            return (T) new QuitViewModel(memberRepository);
         } else {
             throw new IllegalArgumentException("Unknown ViewModel class");
         }

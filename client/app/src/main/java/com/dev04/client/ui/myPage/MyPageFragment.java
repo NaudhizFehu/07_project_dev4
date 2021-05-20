@@ -20,6 +20,7 @@ import com.dev04.client.ViewModelFactory;
 import com.dev04.client.databinding.FragmentMypageBinding;
 import com.dev04.client.ui.join.JoinFragment;
 import com.dev04.client.ui.modify.ModifyFragment;
+import com.dev04.client.ui.quit.QuitFragment;
 import com.dev04.client.ui.read.ReadViewModel;
 import com.dev04.client.viewObject.ArticleVO;
 import com.dev04.client.viewObject.MemberVO;
@@ -79,7 +80,8 @@ public class MyPageFragment extends Fragment {
 
         final Button quitButton = view.findViewById(R.id.quit_btn);
         quitButton.setOnClickListener(v -> {
-//            ((MainActivity) requireActivity()).navigateTo(new QuitFragment(), true);
+            MemberVO vo = myPageViewModel.getMemberVO().getValue();
+            ((MainActivity) requireActivity()).navigateTo(new QuitFragment(vo), true);
         });
 
     }

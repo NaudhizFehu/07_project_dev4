@@ -61,7 +61,8 @@ public class MemberService {
 	 */
 
 	public void delete(MemberVO memberVO) {
-
+		System.out.println(memberVO.getId());
+		System.out.println(memberVO.getPassword());
 		mr.deleteByIdAndPassword(memberVO.getId(), memberVO.getPassword());
 
 	}

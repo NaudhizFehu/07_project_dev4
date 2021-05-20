@@ -30,16 +30,10 @@ public interface MemberService {
 
     @POST("changeMyInfo")
     Call<Void> modyfiMember(@Body MemberVO memberVO);
+
+    @POST("quit")
+    Call<Void> quitMember(@Body MemberVO memberVO);
 //    @Multipart
 //    @POST("member/modify-profile")
 //    Call<Void> modifyMemberWithProfile(@Part("member") Member member, @Part MultipartBody.Part profileFile);
-//
-//    @PUT("member/modify")
-//    Call<Void> modifyMember(@Body Member member);
-//
-//    @DELETE("member")
-//    Call<Void> deleteMembers(@Query("targets") String targets);
-//
-//    @GET("member/{name}")
-//    Call<List<Member>> getMembersByName(@Path("name") String name);
 }
