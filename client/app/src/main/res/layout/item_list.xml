@@ -21,7 +21,6 @@
             android:layout_weight="1"
             android:padding="4dp"
             android:textSize="11sp"
-            android:text="@{article.no}"
             tools:text="00" />
 
         <TextView
@@ -51,7 +50,6 @@
             android:layout_weight="1"
             android:padding="4dp"
             android:textSize="11sp"
-            android:text="@{article.readCnt}"
             tools:text="00" />
 
     </LinearLayout>

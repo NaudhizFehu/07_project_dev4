@@ -6,13 +6,13 @@
     <data>
         <variable
             name="vm"
-            type="com.dev04.client.ui.list.ListViewModel" />
+            type="com.dev04.client.ui.list.ArticleListViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".ui.list.ListFragment">
+        tools:context=".ui.list.ArticleListFragment">
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/list_recycler_view"

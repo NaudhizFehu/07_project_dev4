@@ -1,6 +1,7 @@
 package com.dev04.client.ui.list;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,9 +15,12 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.dev04.client.MainActivity;
 import com.dev04.client.R;
 import com.dev04.client.ViewModelFactory;
-import com.dev04.client.databinding.FragmentListBinding;
+import com.dev04.client.databinding.FragmentArticleListBinding;
+import com.dev04.client.ui.join.JoinFragment;
+import com.dev04.client.ui.myPage.MyPageFragment;
 import com.dev04.client.viewObject.ArticleVO;
 
 import java.util.List;
@@ -25,12 +29,12 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class ListFragment extends Fragment {
+public class ArticleListFragment extends Fragment {
 
-    private FragmentListBinding binding;
-    private ListViewModel listViewModel;
+    private FragmentArticleListBinding binding;
+    private ArticleListViewModel articlelistViewModel;
 
-    private ListAdapter listAdapter;
+    private ArticleListAdapter listAdapter;
 
     private Button prevButton;
     private Button nextButton;
@@ -39,18 +43,19 @@ public class ListFragment extends Fragment {
     private Button logoutButton;
 
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_list, container, false);
+    public View onCreateView(@NonNull LayoutInflater inflater,
+                             @Nullable ViewGroup container,
+                             @Nullable Bundle savedInstanceState) {
+        Log.i("hans", "List, onCreateView");
+        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_article_list, container, false);
         return binding.getRoot();
     }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        Log.i("hans", "List, onViewCreated");
         super.onViewCreated(view, savedInstanceState);
-        listViewModel = new ViewModelProvider(this, new ViewModelFactory()).get(ListViewModel.class);
-
-
-
+        articlelistViewModel = new ViewModelProvider(this, new ViewModelFactory()).get(ArticleListViewModel.class);
 
         prevButton = view.findViewById(R.id.prev_btn);
         nextButton = view.findViewById(R.id.next_btn);
@@ -58,20 +63,25 @@ public class ListFragment extends Fragment {
         myInfoButton = view.findViewById(R.id.my_page_btn);
         logoutButton = view.findViewById(R.id.logout_btn);
 
-        listAdapter = new ListAdapter();
+        Log.i("hans", "before ListAdapter");
+        listAdapter = new ArticleListAdapter();
         RecyclerView recyclerView = view.findViewById(R.id.list_recycler_view);
         recyclerView.setAdapter(listAdapter);
 
         updateList();
+
+        myInfoButton.setOnClickListener(v -> {
+            ((MainActivity) requireActivity()).navigateTo(new MyPageFragment(), true);
+        });
     }
 
     private void updateList(){
-        listViewModel.listArticle(new Callback<List<ArticleVO>>() {
+        articlelistViewModel.listArticle(new Callback<List<ArticleVO>>() {
             @Override
             public void onResponse(Call<List<ArticleVO>> call, Response<List<ArticleVO>> response) {
                 if(response.isSuccessful()){
-                    listViewModel.getArticleList().setValue(response.body());
-                    listAdapter.setArticleList(listViewModel.getArticleList().getValue());
+                    articlelistViewModel.getArticleList().setValue(response.body());
+                    listAdapter.setArticleList(articlelistViewModel.getArticleList().getValue());
                 } else if (requireActivity() != null){
                     Toast.makeText(requireActivity().getApplicationContext(), "게시글 조회 실패", Toast.LENGTH_SHORT).show();
                 }

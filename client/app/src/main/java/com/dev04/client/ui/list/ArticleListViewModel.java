@@ -10,13 +10,13 @@ import java.util.List;
 
 import retrofit2.Callback;
 
-public class ListViewModel extends ViewModel {
+public class ArticleListViewModel extends ViewModel {
 
     private final ArticleRepository repository;
 
     private MutableLiveData<List<ArticleVO>> articleList;
 
-    public ListViewModel(ArticleRepository repository) {
+    public ArticleListViewModel(ArticleRepository repository) {
         this.repository = repository;
 
         articleList = new MutableLiveData<>();

@@ -4,7 +4,6 @@ package com.dev04.client.ui.list;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -16,11 +15,10 @@ import com.dev04.client.BR;
 import com.dev04.client.R;
 import com.dev04.client.viewObject.ArticleVO;
 
-import java.lang.reflect.Member;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
+public class ArticleListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     private static final int HEADER_POSITION = 0;
 
     private List<ArticleVO> articleList = new ArrayList<>();
@@ -72,9 +70,8 @@ public class ListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     private class ArticleViewHolder extends RecyclerView.ViewHolder {
         private ViewDataBinding binding;
 
-//        private ImageView checkView;    // 체크 이미지
         private TextView article_no;    // 순번 텍스트
-//        private ImageView profileView;  // 프로필 이미지
+        private TextView article_readCnt;    // 순번 텍스트
 
         private ArticleVO articleVO;
 
@@ -83,23 +80,8 @@ public class ListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
             this.binding = binding;
 
             View itemView = binding.getRoot();
-//            checkView = itemView.findViewById(R.id.check_image_view);
             article_no = itemView.findViewById(R.id.article_no);
-//            profileView = itemView.findViewById(R.id.profile_view);
-
-//            // 체크 이미지 클릭 이벤트 처리
-//            checkView.setOnClickListener(v -> {
-//                if (articleVO == null) {
-//                    return;
-//                }
-//
-//                boolean isChecked = checkView.isSelected();
-//                checkView.setSelected(!isChecked);
-////                member.setChecked(!isChecked);
-//
-//                // 데이터 변경 알림
-//                notifyItemChanged(getAdapterPosition());
-//            });
+            article_readCnt = itemView.findViewById(R.id.article_readCnt);
         }
 
         private void bind(ArticleVO articleVO) {
@@ -109,8 +91,8 @@ public class ListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
             binding.setVariable(BR.article, articleVO);
             binding.executePendingBindings();
 
-//            checkView.setSelected(member.isChecked());
-            article_no.setText(String.valueOf(getAdapterPosition()));
+            article_no.setText(String.valueOf(articleVO.getNo()));
+            article_readCnt.setText(String.valueOf(articleVO.getReadCnt()));
 
         }
     }

@@ -4,15 +4,14 @@ import androidx.databinding.DataBindingUtil;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.ListFragment;
 import androidx.lifecycle.ViewModelProvider;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.dev04.client.MainActivity;
@@ -20,8 +19,7 @@ import com.dev04.client.R;
 import com.dev04.client.ViewModelFactory;
 import com.dev04.client.databinding.FragmentLoginBinding;
 import com.dev04.client.ui.join.JoinFragment;
-import com.dev04.client.ui.myPage.MyPageFragment;
-import com.dev04.client.ui.read.ReadFragment;
+import com.dev04.client.ui.list.ArticleListFragment;
 import com.dev04.client.viewObject.AuthVO;
 import com.dev04.client.viewObject.MemberVO;
 
@@ -83,7 +81,8 @@ public class LoginFragment extends Fragment {
                         }
 
                         // 로그인시 화면 전환
-                        ((MainActivity) requireActivity()).navigateTo(new ListFragment(), false);
+                        Log.i("hans", "go to List");
+                        ((MainActivity) requireActivity()).navigateTo(new ArticleListFragment(), false);
                     } else if (requireActivity() != null) {
                         Toast.makeText(requireActivity().getApplicationContext(), "회원가입을 해주세요.", Toast.LENGTH_SHORT).show();
                     }

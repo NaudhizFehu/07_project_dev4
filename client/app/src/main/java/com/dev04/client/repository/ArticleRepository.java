@@ -2,6 +2,8 @@ package com.dev04.client.repository;
 
 
 
+import android.util.Log;
+
 import com.dev04.client.viewObject.ArticleVO;
 
 import java.util.List;
@@ -20,6 +22,7 @@ public class ArticleRepository {
     }
 
     public void listArticle(Callback<List<ArticleVO>> callback){
+        Log.i("Hans","ArticleRepository");
         articleService.listArticle().enqueue(callback);
     }
 

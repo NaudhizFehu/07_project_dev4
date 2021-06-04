@@ -19,6 +19,7 @@ public class ArticleController {
 	//게시글리스트
 	@GetMapping("/listArticle")
 	public List<ArticleVO> list(){
+		System.out.println("list");
 		return articleService.listArticle();
 	}
 	//게시글 읽기
