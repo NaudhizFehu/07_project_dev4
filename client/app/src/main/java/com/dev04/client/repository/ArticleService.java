@@ -3,8 +3,11 @@ package com.dev04.client.repository;
 
 import com.dev04.client.viewObject.ArticleVO;
 
+import java.util.List;
+
 import retrofit2.Call;
 import retrofit2.http.Body;
+import retrofit2.http.GET;
 import retrofit2.http.POST;
 
 public interface ArticleService {
@@ -14,6 +17,9 @@ public interface ArticleService {
 //
     @POST("readArticle")
     Call<ArticleVO> readArticle(@Body ArticleVO articleVO);
+
+    @GET("listArticle")
+    Call<List<ArticleVO>> listArticle();
 //
 //    @Multipart
 //    @POST("member/sign-up")

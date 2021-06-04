@@ -8,13 +8,15 @@ import com.dev04.client.viewObject.ArticleVO;
 
 import java.util.List;
 
+import retrofit2.Callback;
+
 public class ListViewModel extends ViewModel {
 
     private final ArticleRepository repository;
 
     private MutableLiveData<List<ArticleVO>> articleList;
 
-    private ListViewModel(ArticleRepository repository) {
+    public ListViewModel(ArticleRepository repository) {
         this.repository = repository;
 
         articleList = new MutableLiveData<>();
@@ -25,7 +27,9 @@ public class ListViewModel extends ViewModel {
     }
 
     // 리포지터리 메소드 호출
-
+    public void listArticle(Callback<List<ArticleVO>> callback){
+        repository.listArticle(callback);
+    }
 
     // 게시글 읽기 메소드
 

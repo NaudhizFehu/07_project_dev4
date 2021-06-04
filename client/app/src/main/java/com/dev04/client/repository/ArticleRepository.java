@@ -4,6 +4,8 @@ package com.dev04.client.repository;
 
 import com.dev04.client.viewObject.ArticleVO;
 
+import java.util.List;
+
 import retrofit2.Callback;
 
 public class ArticleRepository {
@@ -15,6 +17,10 @@ public class ArticleRepository {
 
     public void readArticle(ArticleVO articleVO, Callback<ArticleVO> callback) {
         articleService.readArticle(articleVO).enqueue(callback);
+    }
+
+    public void listArticle(Callback<List<ArticleVO>> callback){
+        articleService.listArticle().enqueue(callback);
     }
 
 //    public void signUpMember(Member member, File file, Callback<Void> callback) {

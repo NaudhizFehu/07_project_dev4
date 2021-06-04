@@ -8,6 +8,7 @@ import com.dev04.client.repository.ArticleRepository;
 import com.dev04.client.repository.MemberRepository;
 import com.dev04.client.repository.NetworkAPI;
 import com.dev04.client.ui.join.JoinViewModel;
+import com.dev04.client.ui.list.ListViewModel;
 import com.dev04.client.ui.login.LoginViewModel;
 import com.dev04.client.ui.modify.ModifyViewModel;
 import com.dev04.client.ui.myPage.MyPageViewModel;
@@ -34,6 +35,8 @@ public class ViewModelFactory implements ViewModelProvider.Factory {
             return (T) new ModifyViewModel(memberRepository);
         } else if (modelClass.isAssignableFrom(QuitViewModel.class)) {
             return (T) new QuitViewModel(memberRepository);
+        } else if (modelClass.isAssignableFrom(ListViewModel.class)) {
+            return (T) new ListViewModel(articleRepository);
         } else {
             throw new IllegalArgumentException("Unknown ViewModel class");
         }

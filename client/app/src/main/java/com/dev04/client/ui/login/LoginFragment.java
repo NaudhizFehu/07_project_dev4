@@ -36,6 +36,8 @@ public class LoginFragment extends Fragment {
 
     private LoginViewModel loginViewModel;
 
+
+
     @Nullable
     @Override
     // 프라그먼트 실행시 장치에 출력될 화면 구성
@@ -81,7 +83,7 @@ public class LoginFragment extends Fragment {
                         }
 
                         // 로그인시 화면 전환
-                        ((MainActivity) requireActivity()).navigateTo(new MyPageFragment(), false);
+                        ((MainActivity) requireActivity()).navigateTo(new ListFragment(), false);
                     } else if (requireActivity() != null) {
                         Toast.makeText(requireActivity().getApplicationContext(), "회원가입을 해주세요.", Toast.LENGTH_SHORT).show();
                     }
